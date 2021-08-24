@@ -2,13 +2,16 @@ package org.hdcd.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hdcd.domain.Board;
+import org.hdcd.domain.Member;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -84,5 +87,21 @@ public class BoardController {
     @RequestMapping(value="/register")
     public void registerForm() {
         log.info("registerForm");
+    }
+    @GetMapping("/register05")
+    public Map<String, Member> register05() {
+        log.info("register05");
+        Map<String, Member> memberMap = new HashMap<String , Member>();
+        Member member = new Member();
+        memberMap.put("key1", member);
+        Member member2 = new Member();
+        member2.setUserId("iron");
+        memberMap.put("key2", member2);
+        return memberMap;
+    }
+    @GetMapping("/register06")
+    public ResponseEntity<Void> register06() {
+        log.info("register06");
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 }
