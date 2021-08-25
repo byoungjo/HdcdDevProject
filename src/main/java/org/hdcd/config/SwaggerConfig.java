@@ -12,6 +12,7 @@ import static springfox.documentation.builders.PathSelectors.any;
 import static springfox.documentation.builders.PathSelectors.regex;
 import static springfox.documentation.spi.DocumentationType.OAS_30;
 
+// http://localhost:8080/swagger-ui/
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {

@@ -94,7 +94,9 @@ public class BoardController {
     public void registerForm() {
         log.info("registerForm");
     }
+
     @GetMapping("/register05")
+    @ApiOperation(value = "테스트05")
     public Map<String, Member> register05() {
         log.info("register05");
         Map<String, Member> memberMap = new HashMap<String , Member>();
