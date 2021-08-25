@@ -1,5 +1,7 @@
 package org.hdcd.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.hdcd.domain.Board;
 import org.hdcd.domain.Member;
@@ -13,9 +15,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
+* chcp 65001
+ */
 @Slf4j
 @RestController
 @RequestMapping("/boards")
+@Api(tags = "보드테스트")
 public class BoardController {
     @GetMapping
     public ResponseEntity<List<Board>> list() {
@@ -99,7 +105,9 @@ public class BoardController {
         memberMap.put("key2", member2);
         return memberMap;
     }
+
     @GetMapping("/register06")
+    @ApiOperation(value = "테스트06")
     public ResponseEntity<Void> register06() {
         log.info("register06");
         return new ResponseEntity<Void>(HttpStatus.OK);
