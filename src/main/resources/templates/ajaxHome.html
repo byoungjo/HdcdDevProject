@@ -158,6 +158,90 @@
                 }
             });
         });
+        $("#regist07Btn").on("click", function(){
+            $.ajax({
+                type : "GET",
+                url : "/boards/register07",
+                contentType : "application/json;charset=UTF-8",
+                success:function(data) {
+                    console.log("data " + data);
+                    alert(JSON.stringify(data));
+                },
+                error : function(xhr, status, error) {
+                    alert("code:" + xhr.status + "\n" + "message:" + xhr.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
+        $("#regist08Btn").on("click", function(){
+            $.ajax({
+                type : "GET",
+                url : "/boards/register08",
+                contentType : "application/json;charset=UTF-8",
+                success:function(data) {
+                    console.log("data " + data);
+                    alert(JSON.stringify(data));
+                },
+                error : function(xhr, status, error) {
+                    alert("code:" + xhr.status + "\n" + "message:" + xhr.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
+        $("#regist09Btn").on("click", function(){
+            $.ajax({
+                type : "GET",
+                url : "/boards/register09",
+                contentType : "application/json;charset=UTF-8",
+                success:function(data) {
+                    console.log("data " + data);
+                    alert(JSON.stringify(data));
+                },
+                error : function(xhr, status, error) {
+                    alert("code:" + xhr.status + "\n" + "message:" + xhr.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
+        $("#regist10Btn").on("click", function(){
+            $.ajax({
+                type : "GET",
+                url : "/boards/register10",
+                contentType : "application/json;charset=UTF-8",
+                success:function(data) {
+                    console.log("data " + data);
+                    alert(JSON.stringify(data));
+                },
+                error : function(xhr, status, error) {
+                    alert("code:" + xhr.status + "\n" + "message:" + xhr.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
+        $("#regist1101Btn").on("click", function(){
+            $.ajax({
+                type : "GET",
+                url : "/boards/register1101",
+                contentType : "application/json;charset=UTF-8",
+                success:function(data) {
+                    console.log("data " + data);
+                    alert(JSON.stringify(data));
+                },
+                error : function(xhr, status, error) {
+                    alert("code:" + xhr.status + "\n" + "message:" + xhr.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
+        $("#regist1102Btn").on("click", function(){
+            $.ajax({
+                type : "GET",
+                url : "/boards/register1102",
+                contentType : "application/json;charset=UTF-8",
+                success:function(data) {
+                    console.log("data " + data);
+                    alert(JSON.stringify(data));
+                },
+                error : function(xhr, status, error) {
+                    alert("code:" + xhr.status + "\n" + "message:" + xhr.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
     });
 </script>
 <body>
@@ -183,6 +267,12 @@
     <button id="registBtn">REGIST</button>
     <button id="regist05Btn">reg05</button><br>
     <button id="regist06Btn">reg06</button><br>
+    <button id="regist07Btn">reg07</button><br>
+    <button id="regist08Btn">reg08</button><br>
+    <button id="regist09Btn">reg09</button><br>
+    <button id="regist10Btn">reg10</button><br>
+    <button id="regist1101Btn">reg1101</button><br>
+    <button id="regist1102Btn">reg1102</button><br>
 </div>
 </body>
 </html>
