@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -185,14 +186,17 @@ public class BoardController {
     @GetMapping("/register1102")
     @ApiOperation(value = "테스트1102")
     public ResponseEntity<byte[]> register1102() throws Exception {
-        log.info("register1101");
+        log.info("register1102");
         InputStream inputStream = null;
         ResponseEntity<byte[]> entity = null;
+        String fileName = "springBootSample.zip";
 
         try {
             HttpHeaders headers = new HttpHeaders();
-            inputStream = new FileInputStream("D:\\temp\\20210806003-인텔리제이_Sonarlint.png");
-            headers.setContentType(MediaType.IMAGE_PNG);
+            inputStream = new FileInputStream("D:\\temp\\" + fileName);
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            headers.add("Content-Disposition","attachment;filename=\"" + new String(fileName.getBytes(StandardCharsets.UTF_8),"ISO-8859-1") + "\"");
+
             entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(inputStream), headers, HttpStatus.CREATED);
         }
         catch (Exception e){
