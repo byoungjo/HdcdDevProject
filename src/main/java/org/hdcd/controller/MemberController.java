@@ -125,7 +125,7 @@ public class MemberController {
                 log.info("fieldError message {}", fieldError.getDefaultMessage());
             }
 
-            ResponseEntity<String> entity = new ResponseEntity<>("SUCCESS", HttpStatus.BAD_REQUEST);
+            ResponseEntity<String> entity = new ResponseEntity<String>(bindingResult.toString(), HttpStatus.BAD_REQUEST);
             return entity;
         }
         log.info("getUserId {}", member.getUserId());

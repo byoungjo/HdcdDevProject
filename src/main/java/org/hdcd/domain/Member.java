@@ -2,10 +2,9 @@ package org.hdcd.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
-import lombok.NonNull;
+
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
