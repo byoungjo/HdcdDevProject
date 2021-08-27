@@ -22,6 +22,11 @@ public class HomeController {
         return "ajaxHome";
     }
 
+    @GetMapping("/registerForm")
+    public String registerForm() {
+        return "registerForm";
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Locale locale, Model model){
         log.info("locale = {}", locale);

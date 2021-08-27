@@ -1,0 +1,101 @@
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<script src="js/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#registerBtn01").on("click", function(){
+            var userId = $("#userId");
+            var password = $("#password");
+
+            var userIdVal = userId.val();
+            var passwordVal = password.val();
+
+            var userObject ={
+                userId : userIdVal,
+                password : passwordVal
+            };
+
+            $.ajax({
+                type : "POST",
+                url : "/register01",
+                data : JSON.stringify(userObject),
+                contentType : "application/json;charset=UTF-8",
+                success : function(result) {
+                    console.log("result " + result)
+                    alert(result);
+                },
+                error : function(request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
+
+        $("#registerBtn02").on("click", function(){
+            var userObjectArray = [
+                {
+                    userId : "id001",
+                    password : "pw001"
+                },
+                {
+                    userId : "id002",
+                    password : "pw002"
+                }
+            ];
+
+            $.ajax({
+                type : "POST",
+                url : "/register02",
+                data : JSON.stringify(userObjectArray),
+                contentType : "application/json;charset=UTF-8",
+                success : function(result) {
+                    console.log("result " + result)
+                    alert(result);
+                },
+                error : function(request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
+
+        $("#inputFile").on("change", function(){
+            console.log("change");
+            var files = event.target.files;
+            var file = files[0];
+            console.log(file);
+            var formData = new FormData();
+            formData.append("file",file);
+
+            $.ajax({
+                type : "POST",
+                url : "/upload",
+                data : formData,
+                dataType : "text",
+                processData : false,
+                contentType: false,
+                success : function(data) {
+                    alert(data);
+                },
+                error : function(request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error );
+                }
+            });
+
+        });
+
+    });
+</script>
+<body>
+<div>
+    <form>
+        boardNo: <input type="text" name="userId"    value="" id="userId"><br>
+        title:   <input type="text" name="password"  value="" id="password"><br>
+    </form>
+    <button id="registerBtn01">registerBtn01</button><br>
+    <button id="registerBtn02">registerBtn02</button><br>
+    fileUpload <input type="file" id = "inputFile">
+</div>
+</body>
+</html>
