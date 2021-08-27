@@ -82,7 +82,44 @@
                     alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error );
                 }
             });
+        });
 
+        $("#registerBtn11").on("click", function(){
+            var userId = $("#userId");
+            var password = $("#password");
+            var userName = $("#userName");
+            var email    = $("#email");
+            var dateOfBirth = $("#dateOfBirth");
+
+            var userIdVal   = userId.val();
+            var passwordVal = password.val();
+            var userNameVal = userName.val();
+            var emailVal    = email.val();
+            var dateOfBirthVal = dateOfBirth.val();
+            var genderVal   = $("input[name='gender']:checked").val();
+
+            var userObject ={
+                userId   : userIdVal,
+                password : passwordVal,
+                userName : userNameVal,
+                email    : emailVal,
+                dateOfBirth : dateOfBirthVal,
+                gender   : genderVal
+            };
+
+            $.ajax({
+                type : "POST",
+                url : "/register11",
+                data : JSON.stringify(userObject),
+                contentType : "application/json;charset=UTF-8",
+                success : function(result) {
+                    console.log("result " + result)
+                    alert(result);
+                },
+                error : function(request, status, error) {
+                    alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error );
+                }
+            });
         });
 
     });
@@ -90,12 +127,22 @@
 <body>
 <div>
     <form>
-        boardNo: <input type="text" name="userId"    value="" id="userId"><br>
-        title:   <input type="text" name="password"  value="" id="password"><br>
+        userId:   <input type="text" name="userId"     value="" id="userId"><br>
+        password: <input type="password" name="password"   value="" id="password"><br>
+        userName: <input type="text" name="userName"   value="" id="userName"><br>
+        email:    <input type="text" name="email"      value="" id="email"><br>
+        birth:    <input type="date" name="dateOfBirth"      value="" id="dateOfBirth"><br>
+        gender:
+        <input type="radio" name="gender" value="male"   id="gender1"><label for="gender1">Male</label><br>
+        <input type="radio" name="gender" value="female" id="gender2"><label for="gender2">Female</label><br>
+        <input type="radio" name="gender" value="other"  id="gender3"><label for="gender3">Other</label><br>
     </form>
     <button id="registerBtn01">registerBtn01</button><br>
     <button id="registerBtn02">registerBtn02</button><br>
+    <button id="registerBtn11">registerBtn11</button><br>
     fileUpload <input type="file" id = "inputFile">
+
+
 </div>
 </body>
 </html>
