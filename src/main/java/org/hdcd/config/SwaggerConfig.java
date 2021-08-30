@@ -23,8 +23,8 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.any()) // 현재 RequestMapping으로 할당된 모든 URL 리스트를 추출
 //                .paths(PathSelectors.ant("/boards.*")) // URL 필터링
-                .paths(regex("/boards.*"))
-//                .paths(any())
+//                .paths(regex("/boards.*"))
+                .paths(any())
                 .build();
     }
 }

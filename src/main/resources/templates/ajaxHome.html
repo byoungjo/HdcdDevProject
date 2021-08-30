@@ -242,6 +242,20 @@
                 }
             });
         });
+        $("#readBtn01").on("click", function(){
+            $.ajax({
+                type : "GET",
+                url : "/greetings/welcome",
+                contentType : "application/json;charset=UTF-8",
+                success:function(data) {
+                    console.log("data " + data);
+                    alert(JSON.stringify(data));
+                },
+                error : function(xhr, status, error) {
+                    alert("code:" + xhr.status + "\n" + "message:" + xhr.responseText + "\n" + "error:" + error );
+                }
+            });
+        });
     });
 </script>
 <body>
@@ -273,6 +287,7 @@
     <button id="regist10Btn">reg10</button><br>
     <button id="regist1101Btn">reg1101</button><br>
     <button id="regist1102Btn">reg1102</button><br>
+    <button id="readBtn01">welcome</button><br>
 </div>
 </body>
 </html>
