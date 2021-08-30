@@ -46,4 +46,28 @@ public class BoardDao {
         jdbcTemplate.update(query, board.getTitle(), board.getTitle(), board.getBoardNo());
     }
 
+    public void delete(Integer boardNo) throws Exception {
+        String query = "DELETE FORM board WHERE board_no = ?";
+        jdbcTemplate.update(query, boardNo);
+    }
+
+    public List<Board> list() throws Exception {
+        List<Board> results = jdbcTemplate.query(
+                "select board_no, title, content, writer, reg_date form board where board_no = ?",
+                new RowMapper<Board>() {
+                    @Override
+                    public Board mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+                        Board board = new Board();
+                        board.setBoardNo(resultSet.getInt("board_no"));
+                        board.setTitle(resultSet.getString("title"));
+                        board.setContent(resultSet.getString("content"));
+                        board.setWriter(resultSet.getString("writer"));
+                        Timestamp timestamp = resultSet.getTimestamp("reg_date");
+                        board.setRegDate(timestamp.toLocalDateTime());
+                        return board;
+                    }
+                });
+
+        return results;
+    }
 }
